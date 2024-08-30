@@ -8,7 +8,8 @@ import { count } from 'console'
 
 // Define the initial state using that type
 const initialState : Cart = {
-  list : []
+  list : [],
+  total : 0
 }
 
 export const cartSlice = createSlice({
@@ -20,11 +21,10 @@ export const cartSlice = createSlice({
       state.list.push({ product : actions.payload , count : 0 })
     },
     addToCart : (state , actions) => {
-      // if(state.list.length != 0){
         state.list.map(product => {
           if(product.product?.name == actions.payload.name) {
-            console.log('yes')
             product.count++;
+            state.total++;
             console.log(product.count)
           }
       })
@@ -37,5 +37,7 @@ export const { addToCart ,updateList } = cartSlice.actions
 // Other code such as selectors can use the imported `RootState` type
 
 export const selectList = (state: RootState) => state.cart.list
+export const selectTotal = (state: RootState) => state.cart.total
+
 
 export default cartSlice.reducer
