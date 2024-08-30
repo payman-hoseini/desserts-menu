@@ -5,15 +5,15 @@
 @font-face {
   font-family: 'RedHat';
   font-weight: 400;
-  src: url(./../assets/fonts/static/RedHatText-Regular.ttf);
+  src: url(./../../public/assets/fonts/static/RedHatText-Regular.ttf);
 }
 @font-face {
   font-family: 'RedHat';
   font-weight: 600;
-  src: url(./../assets/fonts/static/RedHatText-SemiBold.ttf);
+  src: url(./../../public/assets/fonts/static/RedHatText-SemiBold.ttf);
 }
 @font-face {
   font-family: 'RedHat';
   font-weight: 700;
-  src: url(./../assets/fonts/static/RedHatText-Bold.ttf);
+  src: url(./../../public/assets/fonts/static/RedHatText-Bold.ttf);
 }
