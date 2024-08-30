@@ -10,3 +10,10 @@ export interface Product {
     category : string,
     price : string
 }
+
+export interface Cart {
+    list : {
+        product : Product,
+        count : number
+    }[]
+}
