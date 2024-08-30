@@ -12,8 +12,5 @@ export interface Product {
 }
 
 export interface Cart {
-    list : {
-        product : Product,
-        count : number
-    }[]
+    list : { product : Product, count : number}[]
 }

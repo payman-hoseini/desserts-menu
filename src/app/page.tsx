@@ -6,7 +6,7 @@ import Cart from './components/cart';
 
 export default async function Home() {
   const file = await fs.readFile(process.cwd() + '/src/app/data.json' , 'utf8')
-    const products = JSON.parse(file)
+  const products = JSON.parse(file)
     return (
         <>
           <main className='bg-Rose-50 h-screen'>

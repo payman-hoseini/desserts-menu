@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from './store'
 import { Cart, Product } from '@/app/Contract'
+import { count } from 'console'
 
 
 // Define a type for the slice state
@@ -15,25 +16,26 @@ export const cartSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    updateCart : (state , actions) => {
+    updateList : (state , actions) => {
+      state.list.push({ product : actions.payload , count : 0 })
+    },
+    addToCart : (state , actions) => {
+      // if(state.list.length != 0){
         state.list.map(product => {
-          if(product.product.name == actions.payload.name) {
+          if(product.product?.name == actions.payload.name) {
             console.log('yes')
-            return product.count++;
+            product.count++;
+            console.log(product.count)
           }
-          else{
-            console.log('no')
-            return state.list.push(actions.payload)
-          }
-        })
-        // console.log(state.list.length)
+      })
     }
   }
 })
 
-export const { updateCart } = cartSlice.actions
+export const { addToCart ,updateList } = cartSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-// export const selectCount = (state: RootState) => state.counter.value
+
+export const selectList = (state: RootState) => state.cart.list
 
 export default cartSlice.reducer
