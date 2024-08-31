@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from './store'
-import { Cart, Product } from '@/app/Contract'
-import { count } from 'console'
+import { Cart } from '@/app/Contract'
 
 
 // Define a type for the slice state
@@ -25,14 +24,23 @@ export const cartSlice = createSlice({
           if(product.product?.name == actions.payload.name) {
             product.count++;
             state.total++;
-            console.log(product.count)
+            // console.log(product.count)
           }
       })
-    }
+    },
+    removeFromCart : (state , actions) => {
+      state.list.map(product => {
+        if(product.product?.name == actions.payload.name) {
+          product.count--;
+          state.total--;
+        }
+    })
+  }
+
   }
 })
 
-export const { addToCart ,updateList } = cartSlice.actions
+export const { addToCart ,updateList , removeFromCart } = cartSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 
