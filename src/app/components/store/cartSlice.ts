@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from './store'
 import { Cart } from '@/app/Contract'
+import { list } from 'postcss'
 
 
 // Define a type for the slice state
@@ -36,10 +37,18 @@ export const cartSlice = createSlice({
         }
     })
     },
+    cancelProduct : (state , actions) =>{
+      state.list.map(product => {
+        if ( product.product.name == actions.payload.product.name){
+          product.count = 0;
+        }
+      })
+      console.log(actions.payload)
+    }
   }
 })
 
-export const { addToCart ,updateList , removeFromCart  } = cartSlice.actions
+export const { addToCart ,updateList , removeFromCart ,cancelProduct  } = cartSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 
