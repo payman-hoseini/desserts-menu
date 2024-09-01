@@ -8,7 +8,7 @@ import { Cart } from '@/app/Contract'
 // Define the initial state using that type
 const initialState : Cart = {
   list : [],
-  total : 0
+  total : 0,
 }
 
 export const cartSlice = createSlice({
@@ -35,12 +35,11 @@ export const cartSlice = createSlice({
           state.total--;
         }
     })
-  }
-
+    },
   }
 })
 
-export const { addToCart ,updateList , removeFromCart } = cartSlice.actions
+export const { addToCart ,updateList , removeFromCart  } = cartSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 
