@@ -45,11 +45,17 @@ export const cartSlice = createSlice({
         }
       })
       console.log(actions.payload)
+    },
+    emptyCart : (state) => {
+      state.list.map(product => {
+        product.count = 0
+      })
+      state.total = 0;
     }
   }
 })
 
-export const { addToCart ,updateList , removeFromCart ,cancelProduct  } = cartSlice.actions
+export const { addToCart ,updateList , removeFromCart ,cancelProduct , emptyCart  } = cartSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 

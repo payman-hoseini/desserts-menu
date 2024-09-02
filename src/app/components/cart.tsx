@@ -1,6 +1,6 @@
 'use client'
 import { useSelector } from "react-redux"
-import { cancelProduct, selectList, selectTotal } from "./store/cartSlice"
+import { cancelProduct, emptyCart, selectList, selectTotal } from "./store/cartSlice"
 import { useAppDispatch } from "./store/hooks"
 import { useEffect, useRef, useState } from "react"
 
@@ -134,7 +134,7 @@ export default function Cart (){
                                     <p className="font-bold text-2xl">${sum}</p>
                                 </div>
                             </div>
-                            <button className="w-full bg-Red mt-5 text-white py-3 rounded-full font-semibold">Start New Order</button>
+                            <button onClick={() => { dispatch(emptyCart()); setShowModal(false)}} className="w-full bg-Red mt-5 text-white py-3 rounded-full font-semibold">Start New Order</button>
                         </div>
                     </div>
                 </div>
