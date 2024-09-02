@@ -40,6 +40,7 @@ export const cartSlice = createSlice({
     cancelProduct : (state , actions) =>{
       state.list.map(product => {
         if ( product.product.name == actions.payload.product.name){
+          state.total-=product.count;
           product.count = 0;
         }
       })
