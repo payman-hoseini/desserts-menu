@@ -7,8 +7,7 @@ import { useSelector } from "react-redux";
 
 export default function ProductList({product} : {product : Product}){
     const dispatch = useAppDispatch()
-    const [win , setWin] = useState(window.innerWidth)
-
+    const [win , setWin] = useState(0)
     function addtoCart(){
         dispatch(addToCart(product))
     }
@@ -19,6 +18,7 @@ export default function ProductList({product} : {product : Product}){
 
     useEffect (()=>{
         dispatch(updateList(product))
+        setWin(window.innerWidth)
         const handleResize = () => {
             setWin(window.innerWidth);
           };
