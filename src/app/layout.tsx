@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Product List</title>
+        <title>Order Dessert</title>
       </head>
       <Provider store={store}>
         <body>{children}</body>
